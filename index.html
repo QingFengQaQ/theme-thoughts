@@ -2711,14 +2711,12 @@ body{
       });
 
       setTimeout(()=>{
+        if(typeof window.__gotoContent === 'function'){
+          window.__gotoContent(i);
+        }
         stage.classList.add('gone');
         contentRoot.classList.add('show');
         backBtn.classList.add('show');
-        setTimeout(()=>{
-          if(typeof window.__gotoContent === 'function'){
-            window.__gotoContent(i);
-          }
-        }, 60);
       }, 480);
     });
 
