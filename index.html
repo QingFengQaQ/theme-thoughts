@@ -199,7 +199,7 @@
   transition:opacity .8s var(--e),visibility .8s;
 }#contentRoot.show{opacity:1;visibility:visible;pointer-events:auto}#deck{position:absolute;inset:0;display:flex;width:100%;height:100%;will-change:transform;
   transition:transform .95s cubic-bezier(.19,.9,.24,1)}#deck.snap{transition:transform .55s cubic-bezier(.2,1.32,.36,1)}.pg{flex:0 0 100%;width:100%;height:100%;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 52px) var(--pad) calc(env(safe-area-inset-bottom,0px) + 84px)}.pg.scroll{overflow-y:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.pg.scroll::-webkit-scrollbar{display:none}.wrap{width:100%;max-width:520px;margin:auto}.pg .wrap{transition:transform 1s cubic-bezier(.19,.9,.24,1),opacity .85s var(--e)}.pg:not(.on) .wrap{transform:translateY(14px) scale(.985);opacity:.55}.pg.on .wrap{transform:none;opacity:1}.up{opacity:0;transform:translateY(18px);filter:blur(6px);
+  display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 52px) var(--pad) calc(env(safe-area-inset-bottom,0px) + 84px)}.wrap{width:100%;max-width:520px;margin:auto}.pg .wrap{transition:transform 1s cubic-bezier(.19,.9,.24,1),opacity .85s var(--e)}.pg:not(.on) .wrap{transform:translateY(14px) scale(.985);opacity:.55}.pg.on .wrap{transform:none;opacity:1}.up{opacity:0;transform:translateY(18px);filter:blur(6px);
   transition:opacity .95s var(--e),transform 1.05s cubic-bezier(.19,.9,.24,1),filter 1s var(--e)}.pg.on .up{opacity:1;transform:none;filter:blur(0)}.pg.seen .up{opacity:1!important;transform:none!important;filter:blur(0)!important;transition:none!important}.pg.seen .type{animation:none!important;width:100%!important;border-right-color:transparent!important}.pg.on .up:nth-child(1){transition-delay:.05s}.pg.on .up:nth-child(2){transition-delay:.13s}.pg.on .up:nth-child(3){transition-delay:.21s}.pg.on .up:nth-child(4){transition-delay:.29s}.pg.on .up:nth-child(5){transition-delay:.37s}.pg.on .up:nth-child(6){transition-delay:.45s}.h1{font-family:var(--serif);font-weight:300;letter-spacing:.14em;line-height:1.5}.type{display:inline-block;overflow:hidden;white-space:nowrap;border-right:1px solid var(--ink);width:0;animation:none}.pg.on .type{animation:typing 1.5s steps(9,end) .2s forwards,caret 1.1s step-end infinite}
 @keyframes typing{to{width:100%}}
 @keyframes caret{0%,100%{border-color:transparent}50%{border-color:var(--ink)}}.checks{margin-top:6px}.checks .ck{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px dashed var(--ln2)}.checks .ck .bx{width:13px;height:13px;border:1px solid var(--ink);flex:none;position:relative}.checks .ck .bx::after{content:"";position:absolute;inset:3px;background:var(--ink);opacity:0;transition:.3s var(--e)}.checks .ck.done .bx::after{opacity:1}.checks .ck .tx{font-size:11.5px;letter-spacing:.1em;color:var(--g1);transition:color .3s}.checks .ck.done .tx{color:var(--g3)}.links3{margin-top:12px;display:flex;flex-direction:column;gap:1px;background:var(--ln)}.links3 a{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:11px 12px;text-decoration:none;color:var(--ink);
@@ -1160,10 +1160,6 @@
   padding:4px 10px;border:1px solid rgba(255,255,255,.13);border-radius:999px;
   font-family:var(--mono);font-size:6.5px;letter-spacing:.11em;color:#8a8a8a;
   animation:keywordTagIn .55s var(--e) both;
-}.keyword-card-foot{
-  position:relative;z-index:1;display:flex;justify-content:space-between;gap:18px;
-  margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);
-  font-family:var(--mono);font-size:5.5px;letter-spacing:.12em;color:#545454;
 }.keyword-current-card.is-changing h3{animation:keywordTitleIn .78s cubic-bezier(.16,.84,.28,1) both}.keyword-current-card.is-changing>p{animation:keywordCopyIn .78s var(--e) .08s both}.keyword-current-card.is-changing .keyword-card-emblem{animation:emblemTide 1s var(--e) both}
 @keyframes emblemTide{
   0%{opacity:.2;transform:scale(.84)}
@@ -1187,7 +1183,7 @@
   padding:0 4px 10px;border-bottom:1px solid rgba(255,255,255,.07);
   font-family:var(--mono);font-size:6px;letter-spacing:.14em;color:#5c5c5c;
 }.keyword-overview-head span{font-family:var(--serif);font-size:15px;letter-spacing:.16em;color:#bdbdbd}.keyword-overview-head b{font-weight:400;color:#666}.keyword-overview-map{
-  position:relative;height:190px;margin-top:10px;border-radius:24px;overflow:hidden;
+  position:relative;margin-top:10px;border-radius:24px;overflow:hidden;
   background:
     radial-gradient(ellipse 62% 58% at 30% 40%,rgba(255,255,255,.055),transparent 72%),
     radial-gradient(ellipse 52% 46% at 78% 70%,rgba(255,255,255,.035),transparent 74%);
@@ -1216,8 +1212,8 @@
   transition:background .4s,box-shadow .4s;
 }.keyword-overview-node:hover, .keyword-overview-node.is-active{
   color:#f1f1f1;background:rgba(255,255,255,.055);box-shadow:0 0 22px rgba(255,255,255,.05);
-}.keyword-overview-node.is-active{transform:translate(-50%,-50%) scale(1.08)}.keyword-overview-node.is-active::before{background:#fff;box-shadow:0 0 10px rgba(255,255,255,.72)}.keyword-overview-node:focus-visible{outline:1px solid #fff;outline-offset:3px}
-@media (max-width:760px){.keyword-overview{margin-bottom:16px}.keyword-overview-head span{font-size:14px}.keyword-overview-head b{font-size:5.5px}.keyword-overview-map{height:172px;border-radius:20px}.keyword-overview-node{font-size:10.5px;padding:3px 6px;gap:4px}.keyword-overview-node::before{width:5px;height:5px}
+}.keyword-overview-node.is-active::before{background:#fff;box-shadow:0 0 10px rgba(255,255,255,.72)}.keyword-overview-node:focus-visible{outline:1px solid #fff;outline-offset:3px}
+@media (max-width:760px){.keyword-overview{margin-bottom:16px}.keyword-overview-head span{font-size:14px}.keyword-overview-head b{font-size:5.5px}.keyword-overview-node{font-size:10.5px;padding:3px 6px;gap:4px}.keyword-overview-node::before{width:5px;height:5px}
 }.keyword-overview{margin-bottom:14px}.keyword-overview-head span{font-size:8px;letter-spacing:.2em;color:#777}.keyword-overview-map{height:142px;margin-top:7px}.keyword-overview-node{font-size:11px;padding:3px 6px}.keyword-card-stage{min-height:360px}.keyword-card-layer{height:336px;border-radius:34px 34px 22px 34px}.keyword-current-card{
   min-height:336px;padding:23px 26px 19px;border-radius:34px 34px 22px 34px;
 }.keyword-card-head{padding-bottom:10px}.keyword-current-card h3{margin:24px 0 9px;font-size:clamp(44px,5.7vw,66px)}.keyword-current-card>p{min-height:36px;font-size:11px;line-height:1.8}.keyword-current-card aside{margin-top:14px}.keyword-card-foot{padding-top:12px}.keyword-card-emblem{width:82px;height:82px;top:60px;right:26px}.keyword-deck-controls .keyword-action{min-height:38px}
@@ -1256,11 +1252,11 @@
 @media (max-width:760px){.pg{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}.pg .content-page-head{gap:7px;padding-bottom:13px;margin-bottom:18px}.pg .content-page-title{font-size:clamp(52px,16vw,70px)}.pg .content-page-subtitle{min-height:32px;font-size:10px;line-height:1.7}.pg .self-bubble-stage, .pg .keyword-deck, .pg .notice-layout, .pg .more-layout{max-width:100%}.pg .self-bubble-stage, .pg .notice-rules, .pg .past-archive, .pg .more-time{border-radius:26px}.pg .self-bubble-stage{padding:20px 14px;gap:18px}.pg .notice-rules, .pg .past-archive, .pg .more-time{padding:18px 14px}.pg .keyword-current-card, .pg .keyword-card-layer{border-radius:28px 28px 18px 28px}
 }
 @media (max-width:380px){.pg{padding-left:14px;padding-right:14px}.pg .content-page-title{font-size:clamp(48px,15.6vw,62px)}.pg .content-page-subtitle{min-height:30px;font-size:9.5px}.pg .self-bubble-stage{padding-left:12px;padding-right:12px}.pg .notice-rules, .pg .past-archive, .pg .more-time{padding-left:12px;padding-right:12px}
-}.pg::before{right:0}.pg::after{left:0;right:0}.pg.scroll{overflow:hidden!important;scrollbar-width:none}.pg.scroll::-webkit-scrollbar{display:none}.pg.on>.wrap{
+}.pg::before{right:0}.pg::after{left:0;right:0}.pg.scroll{overflow:hidden!important;scrollbar-width:none}.pg.on>.wrap{
   transform-origin:top center;
   transform:scale(var(--page-fit,1));
   opacity:1;
-}.pg.on>.wrap{transform:none;opacity:1}.content-page-body{
+}.content-page-body{
   width:var(--body-width,100%);transform-origin:top left;
   transform:scale(var(--body-fit,1));
 }#inviteStage{overflow:hidden!important}.entry-fit{
@@ -2131,16 +2127,17 @@ body{
   line-height:1.65;
 }
 .audio-toggle{
-  --safe-b:env(safe-area-inset-bottom,0px);
   --line:rgba(255,255,255,.17);
   --bone-soft:#c8c8c8;
   --bone-mute:#696969;
   --blood-bright:#f2f2f2;
   --blood-glow:rgba(255,255,255,.2);
   --ease:var(--e);
-  position:fixed;left:16px;bottom:calc(16px + var(--safe-b));
+  position:fixed;
+  right:calc(env(safe-area-inset-right,0px) + var(--audio-edge));
+  top:calc(env(safe-area-inset-top,0px) + var(--audio-top));
   z-index:10000;
-  width:44px;height:44px;
+  width:var(--audio-size);height:var(--audio-size);
   border-radius:50%;
   border:1px solid var(--line);
   background:rgba(12,5,5,.88);
@@ -2170,25 +2167,11 @@ body{
   box-shadow:0 0 22px var(--blood-glow);
 }
 .audio-toggle.muted{color:var(--bone-mute)}
-@media (max-width:760px){
-  .audio-toggle{
-    left:20px;bottom:20px;width:40px;height:40px;border-radius:2px;
-  }
-}
 :root{
   --audio-edge:clamp(18px,2.2vw,32px);
   --audio-size:clamp(42px,4vw,50px);
   --audio-gap:clamp(10px,1.2vw,16px);
   --audio-top:clamp(12px,1.8vh,22px);
-}
-.audio-toggle{
-  left:auto;
-  right:calc(env(safe-area-inset-right,0px) + var(--audio-edge));
-  top:calc(env(safe-area-inset-top,0px) + var(--audio-top));
-  bottom:auto;
-  width:var(--audio-size);
-  height:var(--audio-size);
-  border-radius:50%;
 }
 #backToBubble{
   right:calc(env(safe-area-inset-right,0px) + var(--audio-edge) + var(--audio-size) + var(--audio-gap));
@@ -2220,7 +2203,7 @@ body{
 <div class="global-brand" aria-label="署名 · THOUGHTS">
   <span>署名</span><i>·</i><b>THOUGHTS</b>
 </div>
-<div class="global-credit" aria-label="版权所有">© 2026 署名 · Disign by 清风.<br>All rights reserved.</div>
+<div class="global-credit" aria-label="版权所有">© 2026 署名 · Design by 清风.<br>All rights reserved.</div>
 <button class="audio-toggle muted" type="button" aria-label="音频开关">♪</button>
 
 <!-- ============================================================
@@ -2349,7 +2332,7 @@ body{
             </div>
           </section>
 
-          <div class="keyword-card-stage" id="keywordStage" data-keyword="0" tabindex="0" aria-label="潮签卡组，使用按钮浏览">
+          <div class="keyword-card-stage" id="keywordStage" data-keyword="0" role="group" aria-label="潮签卡组">
             <i class="keyword-card-layer card-layer-one" aria-hidden="true"></i>
             <i class="keyword-card-layer card-layer-two" aria-hidden="true"></i>
             <article class="keyword-focus keyword-current-card" id="keywordFocus" aria-live="polite">
@@ -2358,9 +2341,9 @@ body{
                 <b id="keywordStageIndex">STYLE</b>
               </header>
               <div class="keyword-card-emblem" aria-hidden="true"><i></i><i></i></div>
-              <h3 id="keywordFocusTitle" data-text="潮痕">潮痕</h3>
-              <p id="keywordFocusDesc">每一次退潮，都留下不愿消失的纹路。</p>
-              <aside id="keywordFocusTags"><span>残留</span><span>回返</span><span>执念</span></aside>
+              <h3 id="keywordFocusTitle"></h3>
+              <p id="keywordFocusDesc"></p>
+              <aside id="keywordFocusTags"></aside>
             </article>
           </div>
           <div class="keyword-deck-controls">
@@ -2388,13 +2371,13 @@ body{
           <section class="up notice-rules">
             <div class="notice-label"><span>我的边界</span><b>YOU MUST UNDERSTAND</b></div>
           <div class="checks" id="checks">
-              <div class="ck"><span class="ck-num">01</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>TIDE LINE</i></div>
-              <div class="ck"><span class="ck-num">02</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>REFLECTION</i></div>
-              <div class="ck"><span class="ck-num">03</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>CURRENT</i></div>
-              <div class="ck"><span class="ck-num">04</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>TIDE LINE</i></div>
-              <div class="ck"><span class="ck-num">05</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>TIDE LINE</i></div>
-              <div class="ck"><span class="ck-num">06</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>TIDE LINE</i></div>
-              <div class="ck"><span class="ck-num">07</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span><i>TIDE LINE</i></div>
+              <div class="ck"><span class="ck-num">01</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
+              <div class="ck"><span class="ck-num">02</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
+              <div class="ck"><span class="ck-num">03</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
+              <div class="ck"><span class="ck-num">04</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
+              <div class="ck"><span class="ck-num">05</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
+              <div class="ck"><span class="ck-num">06</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
+              <div class="ck"><span class="ck-num">07</span><span class="tx">须知内容须知内容须知内容须知内容须知内容建议二十八字以内</span></div>
             </div>
             <div class="notice-confirm-row">
               <button class="notice-confirm" id="noticeConfirm" type="button" aria-pressed="false" aria-label="长按确认，我确认我已经理解并接受这些须知">
@@ -2428,7 +2411,7 @@ body{
           <section class="up past-archive" aria-labelledby="pastTitle">
             <div class="past-archive-head">
               <div>
-                <i>OLD MEMORISES</i>
+                <i>OLD MEMORIES</i>
                 <h3 id="pastTitle">旧日记忆</h3>
               </div>
             </div>
@@ -2450,7 +2433,7 @@ body{
             </section>
 
           <section class="up more-time" aria-labelledby="timeTitle">
-            <div class="more-time-head"><span>TIDE</span><b id="timeTitle">与你共度的时光</b></div>
+            <div class="more-time-head"><span>THOUGHTS</span><b id="timeTitle">与你共度的时光</b></div>
             <div class="cdl">
               <div class="u"><div class="d" id="dD"></div><div class="c">DAYS</div></div>
               <div class="u"><div class="d" id="dH"></div><div class="c">HRS</div></div>
@@ -2485,7 +2468,7 @@ body{
   const countdownValue = document.getElementById('entryCountdownValue');
   const countdownBar = document.getElementById('entryCountdownBar');
   const countdownLabel = document.getElementById('entryCountdownLabel');
-  const YES_COPY = ['请让意识随潮留下','这片海不会放你离开','你只能沉入这里！！！'];
+  const YES_COPY = ['警告！请让意识留下！','“署名”不会放你离开！！','你只能沉入这里！！！'];
   const FINAL_YES = YES_COPY[YES_COPY.length - 1];
   const COUNTDOWN_SECONDS = 10;
   const COUNTDOWN_TOTAL = COUNTDOWN_SECONDS * 1000;
@@ -2577,7 +2560,7 @@ body{
     void countdown.offsetWidth;
     countdown.classList.add('is-forcing');
     countdown.classList.toggle('is-violent', intense);
-    countdownLabel.textContent = intense ? '时间正在剧烈坍塌' : '警告！潮汐加速闭合中...';
+    countdownLabel.textContent = intense ? '“署名”即将苏醒！！！' : '警告！“署名”正在加速苏醒...';
 
     function rush(now){
       const progress = Math.min(1, (now - drainStarted) / (intense ? 600 : 460));
@@ -2588,7 +2571,7 @@ body{
         countdownRemaining = drainTo;
         timeDraining = false;
         countdown.classList.remove('is-forcing','is-violent');
-        countdownLabel.textContent = '秒后，潮汐将替你决定';
+        countdownLabel.textContent = '秒后，“署名”将替你决定';
         if(countdownRemaining <= 0) finishCountdown();
         else runCountdown();
         return;
@@ -2606,7 +2589,7 @@ body{
     countdownRemaining = 0;
     countdown.classList.remove('is-urgent','is-nudged','is-forcing','is-violent');
     countdown.classList.add('is-complete');
-    countdownLabel.textContent = '潮汐已经闭合';
+    countdownLabel.textContent = '“署名”已经苏醒';
     countdownValue.textContent = '0';
     countdownBar.style.transform = 'scaleX(0)';
     qMark.textContent = 'LOCKED';
@@ -2629,7 +2612,7 @@ body{
     noClicks = Math.max(0, Number(clicks) || 0);
     inviteInner.classList.remove('final-warning');
     countdown.classList.remove('is-complete','is-forcing','is-violent');
-    countdownLabel.textContent = '秒后，潮汐将替你决定';
+    countdownLabel.textContent = '秒后，“署名”将替你决定';
     setChoiceState();
     countdownRemaining = Math.max(0, Math.min(COUNTDOWN_SECONDS, Number(seconds) || 0)) * 1000;
     paintCountdown();
@@ -2965,7 +2948,6 @@ body{
   const stageIndex = document.getElementById('keywordStageIndex');
   const shuffle = document.getElementById('keywordShuffle');
   const autoBtn = document.getElementById('keywordAuto');
-  const overviewMap = document.getElementById('keywordOverviewMap');
   const overviewField = document.getElementById('keywordOverviewField');
   if(!stage || !card || !title || !overviewField) return;
 
@@ -3161,7 +3143,6 @@ body{
     stage.dataset.keyword = String(index);
     stageIndex.textContent = 'STYLE';
     title.textContent = item.title;
-    title.dataset.text = item.title;
     desc.textContent = item.desc;
     renderTags(item.tags);
     overviewNodes.forEach((node, i) => {
@@ -3212,11 +3193,6 @@ body{
     setTimeout(()=>button.classList.remove('is-pulsing'), 720);
   }
 
-  function move(delta){
-    stopAuto();
-    select(active + delta);
-  }
-
   shuffle?.addEventListener('click', () => {
     stopAuto();
     let next = active;
@@ -3241,16 +3217,6 @@ body{
   window.addEventListener('orientationchange', () => {
     setTimeout(scheduleOverviewLayout, 120);
   }, {passive:true});
-
-  stage.addEventListener('keydown', event => {
-    if(event.key === 'ArrowLeft'){
-      event.preventDefault();
-      move(-1);
-    }else if(event.key === 'ArrowRight'){
-      event.preventDefault();
-      move(1);
-    }
-  });
 
   window.__keywordDiveState = {
     getIndex(){return active;},
@@ -3330,8 +3296,7 @@ body{
         noticeConfirmed: document.getElementById('noticeConfirm')?.getAttribute('aria-pressed') === 'true',
         keyword: Math.max(0, activeKeyword),
         auto: keywordStage ? keywordStage.dataset.auto === 'true' : false,
-        seen: pgs.map((pageEl, i) => pageEl.classList.contains('seen') ? i : -1).filter(i => i >= 0),
-        scrolls: pgs.map(pageEl => Math.max(0, Math.round(pageEl.scrollTop)))
+        seen: pgs.map((pageEl, i) => pageEl.classList.contains('seen') ? i : -1).filter(i => i >= 0)
       }
     };
   }
@@ -3356,7 +3321,7 @@ body{
       const stage = Math.max(0, Math.min(Number(entry.stage) || 0, 3));
       entryPick.dataset.stage = String(stage);
       yesBtn.textContent = entry.yesText || (stage === 3 ? '你只能沉入这里！！！' : '是 · YES');
-      qMark.textContent = entry.qMark || (stage ? 'NO · 0' + stage : 'AWAITING TIDE');
+      qMark.textContent = entry.qMark || (stage ? 'NO · 0' + stage : 'AWAITING');
       noBtn.disabled = stage >= 3;
       inviteInner.classList.toggle('final-warning', stage >= 3);
       if(window.__entryCountdown){
@@ -3387,7 +3352,7 @@ body{
     }
 
     if(window.__keywordDiveState){
-      window.__keywordDiveState.setIndex(Number(interaction.keyword) || 0, false);
+      window.__keywordDiveState.setIndex(Number(interaction.keyword) || 0);
       window.__keywordDiveState.setAuto(Boolean(interaction.auto));
     }
   }
@@ -3406,11 +3371,9 @@ body{
     saveTimer = setTimeout(persist, 100);
   }
 
-  ['click','keyup','pointerup','touchend','change','input','wheel'].forEach(type => {
+  ['click','keyup','change','input'].forEach(type => {
     document.addEventListener(type, scheduleSave, {capture:true, passive:true});
   });
-  document.addEventListener('scroll', scheduleSave, {capture:true, passive:true});
-  pgs.forEach(pageEl => pageEl.addEventListener('scroll', scheduleSave, {passive:true}));
 
   const observer = new MutationObserver(scheduleSave);
   [inviteStage, bubbleStage, contentRoot, backBtn, entryPick].forEach(el => {
@@ -3534,9 +3497,11 @@ body{
    Audio module
    ============================================================ */
 (function() {
-  const AUDIO_KEY = 'angelina-audio-state-v1';
+  const AUDIO_KEY = 'zhuming.thoughts.audio.v1';
+  const LEGACY_AUDIO_KEY = 'angelina-audio-state-v1';
   const MAX = 3;
   const EXT = '.mp3';
+  const UNLOCK_EVENT = 'onpointerdown' in window ? 'pointerdown' : 'mousedown';
   const cdnPrefix = 'https://cdn.jsdmirror.com/gh/qingfengqaq/theme-thoughts@main/';
 
   const srcIndex = Math.floor(Math.random() * MAX);
@@ -3561,13 +3526,16 @@ body{
 
   function enabled() {
     try {
-      const raw = localStorage.getItem(AUDIO_KEY);
+      const raw = localStorage.getItem(AUDIO_KEY) || localStorage.getItem(LEGACY_AUDIO_KEY);
       if (!raw) return true;
       return JSON.parse(raw).enabled !== false;
     } catch (e) { return true; }
   }
   function setEnabled(v) {
-    try { localStorage.setItem(AUDIO_KEY, JSON.stringify({ enabled: v })); } catch (e) {}
+    try {
+      localStorage.setItem(AUDIO_KEY, JSON.stringify({ enabled: v }));
+      localStorage.removeItem(LEGACY_AUDIO_KEY);
+    } catch (e) {}
   }
 
   function updateBtn(playing) {
@@ -3575,6 +3543,8 @@ body{
     if (!b) return;
     b.classList.toggle('playing', playing);
     b.classList.toggle('muted', !playing);
+    b.setAttribute('aria-pressed', String(playing));
+    b.setAttribute('aria-label', playing ? '关闭背景音乐' : '开启背景音乐');
     b.textContent = playing ? '♫' : '♪';
   }
 
@@ -3634,10 +3604,7 @@ body{
     if (unlockBound || done) return;
     unlockBound = true;
     const opts = { passive: true, capture: true };
-    document.addEventListener('pointerdown', unlockHandler, opts);
-    document.addEventListener('touchstart', unlockHandler, opts);
-    document.addEventListener('mousedown', unlockHandler, opts);
-    document.addEventListener('click', unlockHandler, opts);
+    document.addEventListener(UNLOCK_EVENT, unlockHandler, opts);
     document.addEventListener('keydown', unlockHandler, opts);
     document.addEventListener('scroll', unlockHandler, opts);
     document.addEventListener('wheel', unlockHandler, opts);
@@ -3645,10 +3612,7 @@ body{
   function unbindUnlock() {
     if (!unlockBound) return;
     unlockBound = false;
-    document.removeEventListener('pointerdown', unlockHandler, true);
-    document.removeEventListener('touchstart', unlockHandler, true);
-    document.removeEventListener('mousedown', unlockHandler, true);
-    document.removeEventListener('click', unlockHandler, true);
+    document.removeEventListener(UNLOCK_EVENT, unlockHandler, true);
     document.removeEventListener('keydown', unlockHandler, true);
     document.removeEventListener('scroll', unlockHandler, true);
     document.removeEventListener('wheel', unlockHandler, true);
